@@ -24,8 +24,7 @@ public class HelloApplication extends Application {
        Tab t1 = new Tab("Maze 1", fxmlLoader.load());
        Tab t2 = new Tab("Maze 2",fxmlLoader2.load());
        tPane.getTabs().addAll(t1,t2);
-
-        Scene scene = new Scene(tPane, 575, 479);
+       Scene scene = new Scene(tPane, 575, 479);
         stage.setTitle("Maze!");
         stage.setScene(scene);
         stage.show();

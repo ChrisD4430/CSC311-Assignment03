@@ -26,7 +26,8 @@ public class RobotController {
         Platform.runLater(() -> {
             anchorPane.requestFocus();
         });
-
+        anchorPane.setOnMouseClicked(e -> anchorPane.requestFocus());
+        anchorPane.setOnKeyPressed(this::handleKey);
     }
 
     //listener for arrow keys, connected to the anchor pane of the scene itself for best detection
@@ -38,6 +39,7 @@ public class RobotController {
             case LEFT -> move(-5,0);
             case RIGHT -> move(5,0);
         }
+        System.out.println("KEY PRESSED");
     }
 
     //calculates new position of robot and checks for wall, if no wall then the robot moves to the new position
