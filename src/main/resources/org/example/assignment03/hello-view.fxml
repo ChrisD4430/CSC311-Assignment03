@@ -12,9 +12,9 @@
             <Image url="@maze.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="robotView" fitHeight="26.0" fitWidth="31.0" layoutX="14.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgView" fitHeight="26.0" fitWidth="31.0" layoutX="14.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@robot.png" />
+            <Image url="@car.png" />
          </image>
       </ImageView>
    </children>
