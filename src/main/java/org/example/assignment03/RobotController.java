@@ -15,7 +15,7 @@ public class RobotController {
     @FXML
     private ImageView mazeView;
     @FXML
-    private ImageView robotView;
+    private ImageView imgView;
     @FXML
     private AnchorPane anchorPane;
 
@@ -43,12 +43,33 @@ public class RobotController {
     @FXML
     private void move(int dx, int dy) {
         //potential new location of robot, before wall check
-        double newX = robotView.getLayoutX() + dx;
-        double newY = robotView.getLayoutY() + dy;
+        double newX = imgView.getLayoutX() + dx;
+        double newY = imgView.getLayoutY() + dy;
+
+        //rotating the img based on the direction it faces
+        double imgX = imgView.getLayoutX();
+        double imgY = imgView.getLayoutY();
+        if (imgX>newX){
+            imgView.setRotate(0);
+            imgView.setScaleX(-1);
+        }
+        else if (imgX<newX) {
+            imgView.setRotate(0);
+            imgView.setScaleX(1);
+        }
+        if (imgY>newY){
+            imgView.setRotate(270);
+            imgView.setScaleX(1);
+        }
+        else if (imgY<newY) {
+            imgView.setRotate(270);
+            imgView.setScaleX(-1);
+        }
+
 
         //Compute robot center in SCENE coordinates
-        double centerX = newX + robotView.getFitWidth() / 2;
-        double centerY = newY + robotView.getFitHeight() / 2;
+        double centerX = newX + imgView.getFitWidth() / 2;
+        double centerY = newY + imgView.getFitHeight() / 2;
 
         //Convert scene coords to mazeView local coords
         var localPoint = mazeView.sceneToLocal(centerX, centerY);
@@ -76,8 +97,9 @@ public class RobotController {
 
         //Collision check
         if (!isBlue(c)) {
-            robotView.setLayoutX(newX);
-            robotView.setLayoutY(newY);
+
+            imgView.setLayoutX(newX);
+            imgView.setLayoutY(newY);
             System.out.println("Moved!");
         } else {
             System.out.println("Wall!");
