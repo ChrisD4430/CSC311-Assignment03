@@ -26,7 +26,7 @@ public class RobotController {
         Platform.runLater(() -> {
             anchorPane.requestFocus();
         });
-        anchorPane.setOnMouseClicked(e -> anchorPane.requestFocus());
+
     }
 
     //listener for arrow keys, connected to the anchor pane of the scene itself for best detection
