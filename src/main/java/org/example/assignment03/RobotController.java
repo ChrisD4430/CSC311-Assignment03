@@ -39,7 +39,8 @@ public class RobotController {
             case LEFT -> move(-5,0);
             case RIGHT -> move(5,0);
         }
-       event.consume();
+        event.consume();
+
         System.out.println("KEY PRESSED");
     }
 
@@ -76,14 +77,17 @@ public class RobotController {
         double centerY = newY + imgView.getFitHeight() / 2;
 
         //Convert scene coords to mazeView local coords
-        var localPoint = mazeView.sceneToLocal(centerX, centerY);
+        var localPoint = mazeView.parentToLocal(centerX, centerY);
 
         double lx = localPoint.getX();
         double ly = localPoint.getY();
 
         //Convert mazeView local coords to image pixel coords
-        double scaleX = mazeView.getImage().getWidth()  / mazeView.getBoundsInLocal().getWidth();
-        double scaleY = mazeView.getImage().getHeight() / mazeView.getBoundsInLocal().getHeight();
+        double displayedWidth  = mazeView.getBoundsInParent().getWidth();
+        double displayedHeight = mazeView.getBoundsInParent().getHeight();
+
+        double scaleX = mazeView.getImage().getWidth()  / displayedWidth;
+        double scaleY = mazeView.getImage().getHeight() / displayedHeight;
 
         int px = (int) Math.round(lx * scaleX);
         int py = (int) Math.round(ly * scaleY);
@@ -100,6 +104,7 @@ public class RobotController {
         Color c = mazeView.getImage().getPixelReader().getColor(px, py);
 
         //Collision check
+
         if (!isBlue(c)) {
 
             imgView.setLayoutX(newX);
