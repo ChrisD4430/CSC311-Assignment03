@@ -26,7 +26,7 @@ public class RobotController {
         Platform.runLater(() -> {
             anchorPane.requestFocus();
         });
-        anchorPane.setOnMouseClicked(e -> anchorPane.requestFocus());
+        anchorPane.setOnMouseClicked(e -> anchorPane.requestFocus()); // Makes sure the arrow keys and inputs are focused on the maze you click
 
     }
 
@@ -39,9 +39,9 @@ public class RobotController {
             case LEFT -> move(-5,0);
             case RIGHT -> move(5,0);
         }
-        event.consume();
+        event.consume(); // Stops the tabs from switching when you press the arrow keys
 
-        System.out.println("KEY PRESSED");
+
     }
 
     //calculates new position of robot and checks for wall, if no wall then the robot moves to the new position
