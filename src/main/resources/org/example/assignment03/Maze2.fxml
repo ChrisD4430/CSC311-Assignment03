@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKey" prefHeight="479.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.assignment03.RobotController">
    <children>
       <ImageView fx:id="mazeView" fitHeight="400.0" fitWidth="689.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@maze.png" />
+            <Image url="@maze2.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imgView" fitHeight="26.0" fitWidth="31.0" layoutX="14.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
@@ -17,7 +17,5 @@
             <Image url="@car.png" />
          </image>
       </ImageView>
-      <Button fx:id="carButton" layoutX="245.0" layoutY="420.0" mnemonicParsing="false" onAction="#changeMode" text="Switch to Robot" />
-      <Button fx:id="solveButton" disable="true" layoutX="92.0" layoutY="420.0" mnemonicParsing="false" onAction="#moveRobotToExit" opacity="0.0" text="Auto-Solve!" />
    </children>
 </AnchorPane>
